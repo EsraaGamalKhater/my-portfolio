@@ -1,0 +1,107 @@
+.projects-section {
+    padding: 7rem 0;
+    position: relative;
+    z-index: 1;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+.project-card {
+    background: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+    perspective: 1000px;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 1.5rem;
+    background: linear-gradient(135deg, var(--accent, #4db5ff), transparent, transparent);
+    z-index: -1;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.project-card:hover::before { opacity: 0.6; }
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow:
+        0 30px 60px rgba(0, 0, 0, 0.4),
+        0 0 60px color-mix(in srgb, var(--accent, #4db5ff) 8%, transparent);
+    border-color: color-mix(in srgb, var(--accent, #4db5ff) 15%, transparent);
+}
+
+.project-icon {
+    font-size: 2.2rem;
+    color: var(--accent, #4db5ff);
+    margin-bottom: 1rem;
+    transition: 0.4s;
+    filter: drop-shadow(0 0 10px color-mix(in srgb, var(--accent, #4db5ff) 0.3, transparent));
+}
+
+.project-card:hover .project-icon {
+    transform: scale(1.2) rotate(-8deg);
+    filter: drop-shadow(0 0 20px color-mix(in srgb, var(--accent, #4db5ff) 0.5, transparent));
+}
+
+.project-content {
+    position: relative;
+    z-index: 1;
+}
+
+.project-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 0.8rem;
+    transition: 0.3s;
+}
+
+.project-card:hover .project-title {
+    color: var(--accent, #4db5ff);
+}
+
+.project-techs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.project-tech {
+    font-size: 0.72rem;
+    font-weight: 500;
+    padding: 0.25rem 0.8rem;
+    border-radius: 50px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    color: rgba(255,255,255,0.4);
+    transition: 0.3s;
+}
+
+.project-card:hover .project-tech {
+    background: color-mix(in srgb, var(--accent, #4db5ff) 12%, transparent);
+    border-color: color-mix(in srgb, var(--accent, #4db5ff) 20%, transparent);
+    color: color-mix(in srgb, var(--accent, #4db5ff) 80%, white);
+}
+
+.project-desc {
+    color: rgba(255, 255, 255, 0.35);
+    font-size: 0.88rem;
+    line-height: 1.7;
+}
+
+@media (max-width: 600px) {
+    .projects-grid { grid-template-columns: 1fr; }
+}

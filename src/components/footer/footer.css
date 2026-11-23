@@ -1,0 +1,129 @@
+.footer {
+    position: relative;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.15);
+    padding: 4rem 0 2rem;
+    border-top: 1px solid rgba(77, 181, 255, 0.04);
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.footer-logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, white, #4db5ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 1px;
+}
+
+.footer-logo span {
+    background: linear-gradient(135deg, #4db5ff, #8a2be2, #ff416c);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: logoShift 4s ease-in-out infinite;
+}
+
+@keyframes logoShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.footer-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.3);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: 0.3s;
+    position: relative;
+}
+
+.footer-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: linear-gradient(90deg, #4db5ff, transparent);
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: #4db5ff;
+}
+
+.footer-links a:hover::after { width: 100%; }
+
+.footer-social {
+    display: flex;
+    gap: 1.2rem;
+}
+
+.footer-social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(77, 181, 255, 0.08);
+    border-radius: 50%;
+    font-size: 1.1rem;
+    background: linear-gradient(135deg, #4db5ff, #8a2be2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: 0.4s;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer-social a::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #4db5ff, #8a2be2);
+    opacity: 0;
+    transition: 0.4s;
+    z-index: -1;
+}
+
+.footer-social a:hover {
+    -webkit-text-fill-color: white;
+    border-color: transparent;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(77, 181, 255, 0.2);
+}
+
+.footer-social a:hover::before { opacity: 1; }
+
+.footer-copy {
+    color: rgba(255, 255, 255, 0.1);
+    font-size: 0.78rem;
+    margin-top: 0.5rem;
+}
+
+@media (max-width: 600px) {
+    .footer-links {
+        gap: 1.2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
